@@ -1,0 +1,35 @@
+[project]
+name = "Projector Python Beginning"
+version = "1.0.0"
+description = ""
+authors = [
+    {name = "Oleh Davymuka", email = "olegdavimuka@gmail.com"},
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+  | \.venv
+)/
+'''
+
+[tool.isort]
+multi_line_output=3
+include_trailing_comma=true
+force_grid_wrap=0
+use_parentheses=true
+line_length=120
+
+[tool.mypy]
+mypy_path = "app/"
+follow_imports = "silent"
+follow_imports_for_stubs = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
