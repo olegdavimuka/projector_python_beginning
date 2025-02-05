@@ -120,15 +120,21 @@ def task_8() -> None:
     """
     eq = "4x^2 +4x +    (-8) =  0"
 
-    eq = eq.replace("x^2", "").replace("x", "").replace("=  0", "").replace("+", " +").replace("-", " -").replace("(",
-                                                                                                                  "").replace(
-        ")", "")
+    eq = (
+        eq.replace("x^2", "")
+        .replace("x", "")
+        .replace("=  0", "")
+        .replace("+", " +")
+        .replace("-", " -")
+        .replace("(", "")
+        .replace(")", "")
+    )
     parts = eq.split()
     a = int(parts[0])
     b = int(parts[1])
     c = int(parts[2])
 
-    discriminant = b ** 2 - 4 * a * c
+    discriminant = b**2 - 4 * a * c
     x1 = (-b + math.sqrt(discriminant)) / (2 * a)
     x2 = (-b - math.sqrt(discriminant)) / (2 * a)
 

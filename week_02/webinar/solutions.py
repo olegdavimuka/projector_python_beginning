@@ -1,4 +1,3 @@
-
 def task_1() -> None:
     """
     Sum of Digits
