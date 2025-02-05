@@ -1,3 +1,6 @@
+import math
+
+
 def task_1() -> None:
     """
     Convert a snake_case string to a camelCase string.
@@ -5,9 +8,12 @@ def task_1() -> None:
     input_str = "this_is_snake_case"
 
     words = input_str.split("_")
+
+    # Other way to solve this task
     # result = words[0]
     # for word in words[1:]:
     #     result += word.capitalize()
+
     result = words[0] + "".join(word.capitalize() for word in words[1:])
 
     expected = "thisIsSnakeCase"
@@ -65,7 +71,16 @@ def task_5() -> None:
     """
     input_str = "thisIsCamelCase"  # noqa
 
-    result = ""  # TODO:
+    # Other way to solve this task
+    # result = ""
+    # for i in input_str:
+    #     if i.isupper():
+    #         result += "_" + i.lower()
+    #     else:
+    #         result += i
+    # result = result.lstrip("_")
+
+    result = "".join(["_" + i.lower() if i.isupper() else i for i in input_str]).lstrip("_")
 
     expected = "this_is_camel_case"
     print("snake_case string:", result)
@@ -78,7 +93,7 @@ def task_6() -> None:
     """
     sentence = "This is a sample sentence with spaces."  # noqa
 
-    char_count = ""  # TODO:
+    char_count = len([char for char in sentence if char.isalpha()])
 
     expected = 31
     print("Number of characters excluding spaces:", char_count)
@@ -91,18 +106,30 @@ def task_7() -> None:
     """
     input_str = "This is a sample sentence with vowels."  # noqa
 
-    result = ""  # TODO:
+    vowels = "aeiouAEIOU"
+    result = "".join([char for char in input_str if char not in vowels])
 
     expected = "Ths s  smpl sntnc wth vwls."
     print("String without vowels:", result)
     print(result == expected)  # should be True
 
 
-if __name__ == "__main__":
-    task_1()
-    task_2()
-    task_3()
-    task_4()
-    task_5()
-    task_6()
-    task_7()
+def task_8() -> None:
+    """
+    Solve quadratic equations from an input string.
+    """
+    eq = "4x^2 +4x +    (-8) =  0"
+
+    eq = eq.replace("x^2", "").replace("x", "").replace("=  0", "").replace("+", " +").replace("-", " -").replace("(",
+                                                                                                                  "").replace(
+        ")", "")
+    parts = eq.split()
+    a = int(parts[0])
+    b = int(parts[1])
+    c = int(parts[2])
+
+    discriminant = b ** 2 - 4 * a * c
+    x1 = (-b + math.sqrt(discriminant)) / (2 * a)
+    x2 = (-b - math.sqrt(discriminant)) / (2 * a)
+
+    print(x1, x2)
