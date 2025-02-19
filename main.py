@@ -69,6 +69,7 @@ def main() -> None:
         "1": ["Variables and Built-in Functions", "Boolean, None, and Strings"],
         "2": ["Conditions and Loops", "Functions"],
         "3": ["Scope. Tuples", "Lists"],
+        "4": ["Sets", "Complexities"],
     }
 
     while True:
