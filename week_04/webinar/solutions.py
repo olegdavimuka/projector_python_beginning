@@ -105,7 +105,14 @@ def task_7():
     Example Input: "This is a sample text. This text is a good example."
     Example Output: {'This': 2, 'is': 2, 'a': 2, 'sample': 1, 'text': 2, 'good': 1, 'example': 1}
     """
-    ...
+    def word_frequency(text: str) -> dict[str, int]:
+        words = text.split()
+        frequency = {}
+        for word in words:
+            frequency[word] = frequency.get(word, 0) + 1
+        return frequency
+
+    print(word_frequency("This is a sample text. This text is a good example."))
 
 def task_8():
     """
@@ -114,4 +121,7 @@ def task_8():
     Example Input: "listen", "silent"
     Example Output: True
     """
-    ...
+    def is_anagram(first: str, second: str) -> bool:
+        return sorted(first) == sorted(second)
+
+    print(is_anagram("listen", "silent"))
