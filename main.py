@@ -70,6 +70,8 @@ def main() -> None:
         "2": ["Conditions and Loops", "Functions"],
         "3": ["Scope. Tuples", "Lists"],
         "4": ["Sets", "Complexities"],
+        "5": ["Context Managers and Files", "Decorators"],
+        "6": ["Git", "Modules and Packages. Projects."],
     }
 
     while True:
